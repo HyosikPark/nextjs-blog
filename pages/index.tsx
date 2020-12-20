@@ -12,6 +12,7 @@ export default function Home() {
         my: 'goo',
       })
       .then((res) => res.data.name);
+    console.log(anjsep);
     setState(anjsep);
   };
 
@@ -23,6 +24,7 @@ export default function Home() {
       </Head>
       <h1 onClick={toServer}>Click</h1>
       <h1>{state}</h1>
+      <h1>{process.env.EXP}</h1>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>

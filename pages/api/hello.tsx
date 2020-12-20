@@ -2,5 +2,5 @@
 
 export default (req, res) => {
   res.statusCode = 200;
-  res.json({ name: req.body.my });
+  res.json({ name: process.env.EXP });
 };
