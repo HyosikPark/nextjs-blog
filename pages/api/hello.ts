@@ -2,6 +2,6 @@
 
 export default (req, res) => {
   res.statusCode = 200;
-  console.log(process.env.EXP);
+  console.log('sdf');
   res.json({ name: process.env.EXP });
 };
