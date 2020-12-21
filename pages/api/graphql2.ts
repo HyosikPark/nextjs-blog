@@ -16,11 +16,6 @@ const resolvers = {
   },
 };
 
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
