@@ -2,9 +2,17 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import axios from 'axios';
 import { useState } from 'react';
+import { useLazyQuery, gql } from '@apollo/client';
+
+const OKOK = gql`
+  {
+    hello
+  }
+`;
 
 export default function Home() {
   const [state, setState] = useState('');
+  const [triger, { data }] = useLazyQuery(OKOK);
 
   const toServer = async () => {
     const anjsep = await axios
@@ -16,6 +24,10 @@ export default function Home() {
     setState(anjsep);
   };
 
+  const lazy = () => {
+    triger();
+  };
+  console.log(data?.hello);
   return (
     <div className={styles.container}>
       <Head>
@@ -25,6 +37,7 @@ export default function Home() {
       <h1 onClick={toServer}>Click</h1>
       <h1>{state}</h1>
       <h1>{process.env.EXP}</h1>
+      <h1 onClick={lazy}>mutation request</h1>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
